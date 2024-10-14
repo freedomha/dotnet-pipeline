@@ -75,3 +75,13 @@ jobs:
     # # The possible outputs of the `quality-gate-status` variable are `PASSED`, `WARN` or `FAILED`.
     # - name: "Example show SonarQube Quality Gate Status value"
     #   run: echo "The Quality Gate status is ${{ steps.sonarqube-quality-gate-check.outputs.quality-gate-status }}"
+
+
+    # - name: Deploy to Azure App Service
+    #   uses: azure/webapps-deploy@v3.0.1
+    #   env:
+    #     image_tag: ${{ github.run_number }}
+    #   with:
+    #     app-name: 'node-rnc'
+    #     publish-profile: ${{ secrets.azureWebAppPublishProfile }}
+    #     images: 'freedomha/dotnetcoreexample:$image_tag'
