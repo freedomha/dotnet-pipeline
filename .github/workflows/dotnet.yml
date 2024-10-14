@@ -41,16 +41,13 @@ jobs:
         cd out 
         pwd
         ls -la
-    # - name: Docker Build and push
-    #   uses: docker/build-push-action@v6
-    #   with:
-    #     push: true
-    #     tags: freedomha/dotnetcoreexample:0.2
 
     - name: Docker Build and push
+      env:
+        image_tag: ${{ github.run_number }}
       run: |
         pwd
         ls -la
-        docker buildx build -t freedomha/dotnetcoreexample:0.2 --push .
+        docker buildx build -t freedomha/dotnetcoreexample:$image_tag --push .
     #- name: Test
     #  run: dotnet test --no-build --verbosity normal
