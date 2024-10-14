@@ -37,7 +37,9 @@ jobs:
       run: dotnet publish -c Release -o out
 
     - name: check files
-      run: ls -la
+      run: |
+        cd out 
+        ls -la
     - name: Docker Build and push
       uses: docker/build-push-action@v6
       with:
